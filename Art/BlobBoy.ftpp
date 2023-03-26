@@ -1,0 +1,116 @@
+{
+  "meta": {
+    "version": "0.6.7"
+  },
+  "savePath": "D:\\T-bayGameDev\\COMP-4432\\GameDirectory\\Blob-Escapade\\Art",
+  "images": [
+    {
+      "name": "0001.png",
+      "path": "D:/T-bayGameDev/COMP-4432/GameDirectory/Blob-Escapade/Art/BlobBouncing/0001.png",
+      "folder": ""
+    },
+    {
+      "name": "0002.png",
+      "path": "D:/T-bayGameDev/COMP-4432/GameDirectory/Blob-Escapade/Art/BlobBouncing/0002.png",
+      "folder": ""
+    },
+    {
+      "name": "0003.png",
+      "path": "D:/T-bayGameDev/COMP-4432/GameDirectory/Blob-Escapade/Art/BlobBouncing/0003.png",
+      "folder": ""
+    },
+    {
+      "name": "0004.png",
+      "path": "D:/T-bayGameDev/COMP-4432/GameDirectory/Blob-Escapade/Art/BlobBouncing/0004.png",
+      "folder": ""
+    },
+    {
+      "name": "0005.png",
+      "path": "D:/T-bayGameDev/COMP-4432/GameDirectory/Blob-Escapade/Art/BlobBouncing/0005.png",
+      "folder": ""
+    },
+    {
+      "name": "0006.png",
+      "path": "D:/T-bayGameDev/COMP-4432/GameDirectory/Blob-Escapade/Art/BlobBouncing/0006.png",
+      "folder": ""
+    },
+    {
+      "name": "0007.png",
+      "path": "D:/T-bayGameDev/COMP-4432/GameDirectory/Blob-Escapade/Art/BlobBouncing/0007.png",
+      "folder": ""
+    },
+    {
+      "name": "0008.png",
+      "path": "D:/T-bayGameDev/COMP-4432/GameDirectory/Blob-Escapade/Art/BlobBouncing/0008.png",
+      "folder": ""
+    },
+    {
+      "name": "0009.png",
+      "path": "D:/T-bayGameDev/COMP-4432/GameDirectory/Blob-Escapade/Art/BlobBouncing/0009.png",
+      "folder": ""
+    },
+    {
+      "name": "0010.png",
+      "path": "D:/T-bayGameDev/COMP-4432/GameDirectory/Blob-Escapade/Art/BlobBouncing/0010.png",
+      "folder": ""
+    },
+    {
+      "name": "0011.png",
+      "path": "D:/T-bayGameDev/COMP-4432/GameDirectory/Blob-Escapade/Art/BlobBouncing/0011.png",
+      "folder": ""
+    },
+    {
+      "name": "0012.png",
+      "path": "D:/T-bayGameDev/COMP-4432/GameDirectory/Blob-Escapade/Art/BlobBouncing/0012.png",
+      "folder": ""
+    },
+    {
+      "name": "0013.png",
+      "path": "D:/T-bayGameDev/COMP-4432/GameDirectory/Blob-Escapade/Art/BlobBouncing/0013.png",
+      "folder": ""
+    },
+    {
+      "name": "0014.png",
+      "path": "D:/T-bayGameDev/COMP-4432/GameDirectory/Blob-Escapade/Art/BlobBouncing/0014.png",
+      "folder": ""
+    },
+    {
+      "name": "0015.png",
+      "path": "D:/T-bayGameDev/COMP-4432/GameDirectory/Blob-Escapade/Art/BlobBouncing/0015.png",
+      "folder": ""
+    },
+    {
+      "name": "0016.png",
+      "path": "D:/T-bayGameDev/COMP-4432/GameDirectory/Blob-Escapade/Art/BlobBouncing/0016.png",
+      "folder": ""
+    }
+  ],
+  "folders": [],
+  "packOptions": {
+    "textureName": "Blob",
+    "textureFormat": "png",
+    "removeFileExtension": false,
+    "prependFolderName": true,
+    "base64Export": false,
+    "tinify": false,
+    "tinifyKey": "",
+    "scale": 1,
+    "filter": "none",
+    "exporter": "JSON (hash)",
+    "fileName": "pack-result",
+    "savePath": "D:\\T-bayGameDev\\COMP-4432\\GameDirectory\\Blob-Escapade\\Art",
+    "width": 64,
+    "height": 64,
+    "fixedSize": true,
+    "powerOfTwo": true,
+    "padding": 0,
+    "extrude": 0,
+    "allowRotation": false,
+    "allowTrim": false,
+    "trimMode": "trim",
+    "alphaThreshold": "0",
+    "detectIdentical": false,
+    "packer": "MaxRectsBin",
+    "packerMethod": "BottomLeftRule"
+  }
+}
