@@ -12,10 +12,10 @@ public class Player : MonoBehaviour {
     Rigidbody2D rb;
     [SerializeField] float moveSpeed = 5;
     [SerializeField] float JumpSpeed = 10;
+    bool canJump = false;
     // Start is called before the first frame update
     void Start() {
         rb = GetComponent<Rigidbody2D>();
-        //rb.freezeRotation = true;
     }
 
     // Update is called once per frame
@@ -25,9 +25,17 @@ public class Player : MonoBehaviour {
         playerLight.color = color;
         playerSprite.color = color;
 
-        rb.velocity = new Vector2(Input.GetAxis("Horizontal") * moveSpeed, rb.velocity.y);
-        if (Input.GetKeyDown(KeyCode.Space) && rb.velocity.y == 0) {
+        rb.velocity = (new Vector2(Input.GetAxis("Horizontal") * moveSpeed, rb.velocity.y));
+
+        if (rb.velocity.y == 0) {
+            canJump = true;
+        } else if (rb.velocity.y < 0) {
+            canJump = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && canJump) {
             rb.AddForce(new Vector2(0, JumpSpeed));
+            canJump = false;
         }
     }
 }
