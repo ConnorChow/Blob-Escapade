@@ -3,11 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
+public enum AcidType {
+    Basic,
+    ForwardAndUp,
+    FourWay,
+    OctaShot
+}
+
 public class Player : MonoBehaviour {
     [SerializeField] SpriteRenderer playerSprite;
     [SerializeField] Light2D playerLight;
-    [SerializeField] float maxHealth = 100;
-    public float health = 100;
+    [SerializeField] int maxHealth = 100;
+    public int health = 100;
     Color color = new Color(0, 1, 0);
     Rigidbody2D rb;
     [SerializeField] float moveSpeed = 5;
@@ -21,12 +28,14 @@ public class Player : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         //*************Color based on health*************
-        color = new Color(1-(health/maxHealth), health/maxHealth, 0);
+        color = new Color(1-((float)health/ (float)maxHealth), (float)health / (float)maxHealth, 0);
         playerLight.color = color;
         playerSprite.color = color;
 
+        //Player Movement
         rb.velocity = (new Vector2(Input.GetAxis("Horizontal") * moveSpeed, rb.velocity.y));
 
+        //Player Fire
         if (rb.velocity.y == 0) {
             canJump = true;
         } else if (rb.velocity.y < 0) {

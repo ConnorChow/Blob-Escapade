@@ -781,8 +781,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSprite: {fileID: 6829586754284872638}
   playerLight: {fileID: 6829586753221819201}
-  maxHealth: 100
-  health: 100
+  maxHealth: 3
+  health: 3
   moveSpeed: 4
   JumpSpeed: 500
 --- !u!50 &6829586754284872609
