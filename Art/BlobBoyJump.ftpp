@@ -1,0 +1,76 @@
+{
+  "meta": {
+    "version": "0.6.7"
+  },
+  "savePath": "D:\\T-bayGameDev\\COMP-4432\\GameDirectory\\Blob-Escapade\\Art",
+  "images": [
+    {
+      "name": "0001.png",
+      "path": "D:/T-bayGameDev/COMP-4432/GameDirectory/Blob-Escapade/Art/BlobBouncing/JumpingBlob/0001.png",
+      "folder": ""
+    },
+    {
+      "name": "0002.png",
+      "path": "D:/T-bayGameDev/COMP-4432/GameDirectory/Blob-Escapade/Art/BlobBouncing/JumpingBlob/0002.png",
+      "folder": ""
+    },
+    {
+      "name": "0003.png",
+      "path": "D:/T-bayGameDev/COMP-4432/GameDirectory/Blob-Escapade/Art/BlobBouncing/JumpingBlob/0003.png",
+      "folder": ""
+    },
+    {
+      "name": "0004.png",
+      "path": "D:/T-bayGameDev/COMP-4432/GameDirectory/Blob-Escapade/Art/BlobBouncing/JumpingBlob/0004.png",
+      "folder": ""
+    },
+    {
+      "name": "0005.png",
+      "path": "D:/T-bayGameDev/COMP-4432/GameDirectory/Blob-Escapade/Art/BlobBouncing/JumpingBlob/0005.png",
+      "folder": ""
+    },
+    {
+      "name": "0006.png",
+      "path": "D:/T-bayGameDev/COMP-4432/GameDirectory/Blob-Escapade/Art/BlobBouncing/JumpingBlob/0006.png",
+      "folder": ""
+    },
+    {
+      "name": "0007.png",
+      "path": "D:/T-bayGameDev/COMP-4432/GameDirectory/Blob-Escapade/Art/BlobBouncing/JumpingBlob/0007.png",
+      "folder": ""
+    },
+    {
+      "name": "0008.png",
+      "path": "D:/T-bayGameDev/COMP-4432/GameDirectory/Blob-Escapade/Art/BlobBouncing/JumpingBlob/0008.png",
+      "folder": ""
+    }
+  ],
+  "folders": [],
+  "packOptions": {
+    "textureName": "BlobJump",
+    "textureFormat": "png",
+    "removeFileExtension": false,
+    "prependFolderName": true,
+    "base64Export": false,
+    "tinify": false,
+    "tinifyKey": "",
+    "scale": 1,
+    "filter": "none",
+    "exporter": "JSON (hash)",
+    "fileName": "pack-result",
+    "savePath": "D:\\T-bayGameDev\\COMP-4432\\GameDirectory\\Blob-Escapade\\Art",
+    "width": 64,
+    "height": 32,
+    "fixedSize": false,
+    "powerOfTwo": false,
+    "padding": 0,
+    "extrude": 0,
+    "allowRotation": false,
+    "allowTrim": false,
+    "trimMode": "trim",
+    "alphaThreshold": "0",
+    "detectIdentical": false,
+    "packer": "MaxRectsBin",
+    "packerMethod": "BottomLeftRule"
+  }
+}
