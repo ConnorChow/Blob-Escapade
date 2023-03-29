@@ -28,6 +28,8 @@ public class Player : MonoBehaviour {
 
     public int trackDirection = 1;
 
+    bool dead = false;
+
     // Start is called before the first frame update
     void Start() {
         rb = GetComponent<Rigidbody2D>();
@@ -41,8 +43,7 @@ public class Player : MonoBehaviour {
         playerLight.color = color;
         playerSprite.color = color;
 
-        //Player Movement
-        rb.velocity = (new Vector2(Input.GetAxis("Horizontal") * moveSpeed, rb.velocity.y));
+        
 
         //track driection facing
         if (rb.velocity.x > 0) {
@@ -51,16 +52,29 @@ public class Player : MonoBehaviour {
             trackDirection = -1;
         }
 
-        //Player jump
-        if (Input.GetKeyDown(KeyCode.Space) && canJump) {
-            rb.AddForce(new Vector2(0, JumpSpeed));
-            canJump = false;
-        }
+        
         //Control animation
         if (!canJump) {
             acm.SetBool("jump", true);
         } else {
             acm.SetBool("jump", false);
+        }
+
+        if (dead) Destroy(rb);
+    }
+
+    private void FixedUpdate() {
+        //Player Movement
+        Vector2 oldVelocity = rb.velocity;
+
+        Vector2 move = new Vector2(Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime, 0);
+        Vector2 newPosition = rb.position + move;
+
+        rb.MovePosition(newPosition);
+        //Player jump
+        if (Input.GetKeyDown(KeyCode.Space) && canJump) {
+            rb.AddForce(new Vector2(0, JumpSpeed));
+            canJump = false;
         }
     }
 
@@ -74,5 +88,9 @@ public class Player : MonoBehaviour {
 
     private void OnTriggerExit2D(Collider2D other) {
         canJump = false;
+    }
+    public void InflictDamage() {
+        health -= 1;
+        if (health < 0) dead = true;
     }
 }

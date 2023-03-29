@@ -672,6 +672,7 @@ GameObject:
   - component: {fileID: 6829586754284872609}
   - component: {fileID: 6829586754284872610}
   - component: {fileID: 3646332509080325975}
+  - component: {fileID: 2550199897383857605}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -786,6 +787,7 @@ MonoBehaviour:
   health: 3
   moveSpeed: 4
   JumpSpeed: 500
+  trackDirection: 1
 --- !u!50 &6829586754284872609
 Rigidbody2D:
   serializedVersion: 4
@@ -893,3 +895,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.025, y: 0.025}
   m_EdgeRadius: 0
+--- !u!114 &2550199897383857605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6829586754284872636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce57840e8ad17964b9dc735948e8cbf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  acidShotPrefab: {fileID: 181132194629759427, guid: b3620cbe8e7ee3a438331c2d506ab669, type: 3}
+  maximumShots: 10

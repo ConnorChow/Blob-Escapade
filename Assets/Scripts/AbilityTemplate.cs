@@ -58,6 +58,10 @@ public class AbilityTemplate : MonoBehaviour {
         cooldownTimer = cooldown;
         abilityReady = false;
     }
+
+    public void InitializeCooldown(float cooldown) {
+        this.cooldown = cooldown;
+    }
     public bool UpgradeCooldown() {
         if (cooldown > 0.33) {
             cooldown *= 0.9f;
