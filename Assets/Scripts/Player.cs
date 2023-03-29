@@ -52,13 +52,14 @@ public class Player : MonoBehaviour {
             trackDirection = -1;
         }
 
-        
-        //Control animation
-        if (!canJump) {
-            acm.SetBool("jump", true);
-        } else {
-            acm.SetBool("jump", false);
+        //Player jump
+        if (Input.GetKeyDown(KeyCode.Space) && canJump) {
+            rb.AddForce(new Vector2(0, JumpSpeed));
+            //canJump = false;
         }
+
+        //Control animation
+        acm.SetBool("jump", !canJump);
 
         if (dead) Destroy(rb);
     }
@@ -67,15 +68,9 @@ public class Player : MonoBehaviour {
         //Player Movement
         Vector2 oldVelocity = rb.velocity;
 
-        Vector2 move = new Vector2(Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime, 0);
-        Vector2 newPosition = rb.position + move;
+        Vector2 move = new Vector2(Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime, rb.velocity.y);
 
-        rb.MovePosition(newPosition);
-        //Player jump
-        if (Input.GetKeyDown(KeyCode.Space) && canJump) {
-            rb.AddForce(new Vector2(0, JumpSpeed));
-            canJump = false;
-        }
+        rb.velocity = move;
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
