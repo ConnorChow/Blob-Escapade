@@ -5,7 +5,7 @@ using UnityEngine;
 public class AcidShot : AbilityTemplate {
     //these shots 
     [SerializeField] GameObject acidShotPrefab; //Prefab for the AcidShot
-    [SerializeField] int maximumShots = 10;     //Maximum number of shots player is allowed to make at a time
+    [SerializeField] int maximumShots = 15;     //Maximum number of shots player is allowed to make at a time
     private GameObject[] acidShots;             //Recyclable shots
     private int[] direction;                    //Direction that the acid shot moves in
 
@@ -32,12 +32,13 @@ public class AcidShot : AbilityTemplate {
         for (int i = 0; i < maximumShots; i++) {
             acidShots[i] = Instantiate(acidShotPrefab);
             acidShots[i].SetActive(false);
+            SetCooldown();
         }
     }
     public override void OnUpdatePlayer() {
         base.OnUpdatePlayer();
         //on left button, fire
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0) && abilityReady) {
             FirePellet();   //Fire the pellet on shot
         }
         UpdateAcid();
@@ -52,6 +53,7 @@ public class AcidShot : AbilityTemplate {
                 acidShots[i].SetActive(true);   //Set the player to active
                 acidShots[i].transform.position = transform.position;   //set the acid shot's location to the transform of the character 
                 direction[i] = dir;             //Set the heading
+                SetCooldown();
                 break;
             }
         }

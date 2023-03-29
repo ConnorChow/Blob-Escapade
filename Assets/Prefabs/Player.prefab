@@ -673,6 +673,7 @@ GameObject:
   - component: {fileID: 6829586754284872610}
   - component: {fileID: 3646332509080325975}
   - component: {fileID: 2550199897383857605}
+  - component: {fileID: 3228866504072063077}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -785,7 +786,7 @@ MonoBehaviour:
   playerLight: {fileID: 6829586753221819201}
   maxHealth: 3
   health: 3
-  moveSpeed: 4
+  moveSpeed: 250
   JumpSpeed: 500
   trackDirection: 1
 --- !u!50 &6829586754284872609
@@ -909,3 +910,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   acidShotPrefab: {fileID: 181132194629759427, guid: b3620cbe8e7ee3a438331c2d506ab669, type: 3}
   maximumShots: 10
+--- !u!114 &3228866504072063077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6829586754284872636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f83db3008872408408a7445c4f40edac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashDuration: 1
+  dashBurnout: 1
+  dashSpeed: 2000

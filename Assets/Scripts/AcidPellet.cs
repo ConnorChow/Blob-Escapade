@@ -17,6 +17,6 @@ public class AcidPellet : MonoBehaviour {
         } else if (collision.tag == "Obstacle") {
             gameObject.SetActive(false);
         }
-        Debug.Log("Overlap");
+        //Debug.Log("Overlap");
     }
 }

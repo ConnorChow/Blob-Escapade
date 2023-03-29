@@ -5,7 +5,7 @@ using UnityEngine;
 public class AbilityTemplate : MonoBehaviour {
     private float cooldown;
     protected float cooldownTimer;
-    protected bool abilityReady;
+    protected bool abilityReady = true;
     protected bool isPlayer;
     protected bool isValid;
     public void Start() {
