@@ -29,8 +29,10 @@ public class PowerDash : AbilityTemplate {
 
     public void FixedUpdate() {
         if (inDash) {
+            Debug.Log("In Dash");
             dashBurnout -= Time.fixedDeltaTime;
-            rb.velocity = new Vector2(dashSpeed * Time.fixedDeltaTime * direction, 0);
+            rb.velocity = new Vector2(rb.velocity.x, 0);
+            rb.AddForce(new Vector2(dashSpeed * Time.fixedDeltaTime * direction, 0));
             if (dashBurnout <= 0) {
                 dashBurnout = dashDuration;
                 inDash = false;

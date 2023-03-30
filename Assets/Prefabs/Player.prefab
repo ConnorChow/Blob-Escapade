@@ -789,6 +789,8 @@ MonoBehaviour:
   moveSpeed: 250
   JumpSpeed: 500
   trackDirection: 1
+  deathParticles: {fileID: 5264450366302993411, guid: 6e57c1fb2a4875b409d8a204b2c61294, type: 3}
+  dead: 0
 --- !u!50 &6829586754284872609
 Rigidbody2D:
   serializedVersion: 4
@@ -910,6 +912,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   acidShotPrefab: {fileID: 181132194629759427, guid: b3620cbe8e7ee3a438331c2d506ab669, type: 3}
   maximumShots: 10
+  acidType: 0
 --- !u!114 &3228866504072063077
 MonoBehaviour:
   m_ObjectHideFlags: 0
