@@ -42,7 +42,8 @@ public class AbilityTemplate : MonoBehaviour {
             }
             //run an update for either the player or the enemy
             if (isPlayer) {
-                OnUpdatePlayer();
+                //only run player update if alive
+                if (!GetComponent<Player>().dead) OnUpdatePlayer();
             } else {
                 OnUpdateEnemy();
             }

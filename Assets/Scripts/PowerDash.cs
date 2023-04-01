@@ -6,7 +6,7 @@ public class PowerDash : AbilityTemplate {
     [SerializeField] float dashDuration = 1;
     [SerializeField] float dashBurnout = 1;
     [SerializeField] float dashSpeed = 2000;
-    bool inDash = false;
+    public bool inDash = false;
     int direction = 1;
     Rigidbody2D rb;
 

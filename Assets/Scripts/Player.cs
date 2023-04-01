@@ -11,6 +11,8 @@ public class Player : MonoBehaviour {
     //Data for displaying and tracking health
     [SerializeField] int maxHealth = 100;
     public int health = 100;
+    float healthBuffer = 1;
+    public bool isBuffering = false;
     Color color = new Color(0, 1, 0);
 
     //Animation controller
@@ -31,7 +33,7 @@ public class Player : MonoBehaviour {
 
     //Death-related data
     [SerializeField] GameObject deathParticles;
-    [SerializeField] bool dead = false;
+    public bool dead = false;
 
     // Start is called before the first frame update
     void Start() {
@@ -44,7 +46,7 @@ public class Player : MonoBehaviour {
         if (playerLight == null || playerSprite == null) return;
 
         //Color based on health
-        color = new Color(1-(health/ maxHealth), health / maxHealth, 0);
+        color = new Color(1-((float)health / (float)maxHealth), (float)health / (float)maxHealth, 0);
         playerLight.color = color;
         playerSprite.color = color;
 
@@ -63,11 +65,21 @@ public class Player : MonoBehaviour {
         //Control animation
         acm.SetBool("jump", !canJump);
 
+        //health buffer cooldown
+        if (isBuffering) {
+            healthBuffer -= Time.deltaTime;
+            if (healthBuffer < 0) {
+                isBuffering = false;
+            }
+        }
+
+        //Kill player if dead
         if (health < 0) {
             Instantiate(deathParticles, transform.position, Quaternion.identity);
-            
+            dead = true;
             Destroy(playerLight);
             Destroy(playerSprite);
+            rb.simulated = false;
         }
     }
 
@@ -89,7 +101,10 @@ public class Player : MonoBehaviour {
         canJump = false;
     }
     public void InflictDamage() {
+        if (isBuffering) return;
         health -= 1;
         if (health < 0) dead = true;
+        isBuffering = true;
+        healthBuffer = 1;
     }
 }
