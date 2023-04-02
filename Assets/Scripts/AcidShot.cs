@@ -57,6 +57,11 @@ public class AcidShot : AbilityTemplate {
     }
     public override void OnUpdateEnemy() {
         base.OnUpdateEnemy();
+        //Detect the player if nearby
+        if (Vector2.Distance(transform.position, GetComponent<Enemy>().player.transform.position) < detectionRadius && !GetComponent<Enemy>().player.GetComponent<Player>().dead) {
+            GetComponent<Enemy>().attackMode = true;
+        } else GetComponent<Enemy>().attackMode = false;
+
         if (abilityReady && GetComponent<Enemy>().attackMode) {
             int dir = -1;
             if (GetComponent<Enemy>().player.transform.position.x > transform.position.x) dir = 1; else dir = -1;

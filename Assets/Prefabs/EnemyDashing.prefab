@@ -77,7 +77,7 @@ GameObject:
   - component: {fileID: 7725064109827743335}
   - component: {fileID: 1753853907403772473}
   - component: {fileID: 1271328082333607462}
-  - component: {fileID: 3825477999110032209}
+  - component: {fileID: 3243968508114867912}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -309,7 +309,7 @@ MonoBehaviour:
   d2: 0
   currentTarget: 0
   attackSpeedBuffer: 0
---- !u!114 &3825477999110032209
+--- !u!114 &3243968508114867912
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -318,13 +318,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5769223240094015840}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce57840e8ad17964b9dc735948e8cbf7, type: 3}
+  m_Script: {fileID: 11500000, guid: f83db3008872408408a7445c4f40edac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRadius: 5
-  acidShotPrefab: {fileID: 181132194629759427, guid: b3620cbe8e7ee3a438331c2d506ab669, type: 3}
-  maximumShots: 10
-  acidType: 0
+  cooldown: 2
+  detectionRadius: 1
+  dashDuration: 0.2
+  dashBurnout: 0.2
+  dashSpeed: 25000
+  inDash: 0
 --- !u!1 &6829586753221819231
 GameObject:
   m_ObjectHideFlags: 0
@@ -831,7 +833,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6829586754284872639}
   m_Layer: 0
-  m_Name: EnemyBasic
+  m_Name: EnemyDashing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

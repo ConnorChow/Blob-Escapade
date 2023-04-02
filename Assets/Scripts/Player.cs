@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
     //Local component information
@@ -35,10 +37,22 @@ public class Player : MonoBehaviour {
     [SerializeField] GameObject deathParticles;
     public bool dead = false;
 
+    //Game over screen
+    public GameObject GameOverScreen;
+    //To go back to start of level
+    public Button restartLevel;
+    //to go back to start of game
+    public Button restartGame;
+
     // Start is called before the first frame update
     void Start() {
         rb = GetComponent<Rigidbody2D>();
         acm = GetComponent<Animator>();
+
+        GameOverScreen.SetActive(false);
+
+        restartGame.onClick.AddListener(RestartGame);
+        restartLevel.onClick.AddListener(RestartLevel);
     }
 
     // Update is called once per frame
@@ -80,6 +94,7 @@ public class Player : MonoBehaviour {
             Destroy(playerLight);
             Destroy(playerSprite);
             rb.simulated = false;
+            GameOverScreen.SetActive(true);
         }
     }
 
@@ -106,5 +121,12 @@ public class Player : MonoBehaviour {
         if (health < 0) dead = true;
         isBuffering = true;
         healthBuffer = 1;
+    }
+
+    public void RestartLevel() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void RestartGame() {
+        Debug.Log("Restart Game");
     }
 }

@@ -16,6 +16,11 @@ public class PowerDash : AbilityTemplate {
         rb = GetComponent<Rigidbody2D>();
         gScale = rb.gravityScale;
     }
+    public override void OnStartEnemy() {
+        base.OnStartPlayer();
+        rb = GetComponent<Rigidbody2D>();
+        gScale = rb.gravityScale;
+    }
 
     public override void OnUpdatePlayer() {
         base.OnUpdatePlayer();
@@ -27,6 +32,29 @@ public class PowerDash : AbilityTemplate {
         }
     }
 
+    public override void OnUpdateEnemy() {
+        base.OnUpdateEnemy();
+        if (abilityReady && Mathf.Abs(transform.position.x - GetComponent<Enemy>().player.transform.position.x) < 3 && Mathf.Abs(transform.position.y - GetComponent<Enemy>().player.transform.position.y) < 0.1) {
+            GetComponent<Enemy>().attackMode = true;
+        } else if (inDash) {
+            GetComponent<Enemy>().attackMode = true;
+        } else {
+            GetComponent<Enemy>().attackMode = false;
+        }
+        if (!abilityReady) {
+            GetComponent<Enemy>().attackMode = false;
+        }
+        if (GetComponent<Enemy>().attackMode && abilityReady && !inDash) {
+            if (transform.position.x < GetComponent<Enemy>().player.transform.position.x) {
+                direction = 1;
+            } else {
+                direction = -1;
+            }
+            inDash = true;
+            rb.gravityScale = 0;
+        }
+    }
+
     public void FixedUpdate() {
         if (inDash) {
             Debug.Log("In Dash");
@@ -34,6 +62,7 @@ public class PowerDash : AbilityTemplate {
             rb.velocity = new Vector2(rb.velocity.x, 0);
             rb.AddForce(new Vector2(dashSpeed * Time.fixedDeltaTime * direction, 0));
             if (dashBurnout <= 0) {
+                Debug.Log("Burnout");
                 dashBurnout = dashDuration;
                 inDash = false;
                 SetCooldown();

@@ -43,7 +43,6 @@ public class Enemy : MonoBehaviour {
 
     public float currentTarget;
 
-    [SerializeField] float detectionRadius = 1;
     [SerializeField] float attackSpeedBuffer = 0;
 
     // Start is called before the first frame update
@@ -72,10 +71,6 @@ public class Enemy : MonoBehaviour {
             else if (currentTarget == d2)
                 currentTarget = d1;
         }
-        //Detect the player if nearby
-        if (Vector2.Distance(transform.position, player.transform.position) < detectionRadius && !player.GetComponent<Player>().dead) {
-            attackMode = true;
-        } else attackMode = false;
 
         //track driection facing
         if (rb.velocity.x > 0) {

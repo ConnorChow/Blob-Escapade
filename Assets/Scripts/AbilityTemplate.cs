@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AbilityTemplate : MonoBehaviour {
-    private float cooldown;
+    [SerializeField] private float cooldown;
     protected float cooldownTimer;
     protected bool abilityReady = true;
     protected bool isPlayer;
     protected bool isValid;
+    [SerializeField] protected float detectionRadius = 1;
     public void Start() {
         //Try to figure out whether this component is added to an enemy or the player,
         //if anything valid at all
