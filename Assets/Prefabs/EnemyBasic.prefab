@@ -321,10 +321,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce57840e8ad17964b9dc735948e8cbf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cooldown: 0
+  cooldownTimer: 0
+  abilityReady: 1
   detectionRadius: 5
   acidShotPrefab: {fileID: 181132194629759427, guid: b3620cbe8e7ee3a438331c2d506ab669, type: 3}
   maximumShots: 10
   acidType: 0
+  Shot1Drop: {fileID: 6833844262157690812, guid: 417d76eea7ea20a4c920a536da1e9a10, type: 3}
+  Shot2Drop: {fileID: 6833844262157690812, guid: f3a34e7086e695b43a3628903dfe15e8, type: 3}
+  Shot3Drop: {fileID: 6833844262157690812, guid: d10162133d9a1004d937bb80f619ba69, type: 3}
+  Shot4Drop: {fileID: 6833844262157690812, guid: 399af9356a7232b46b2a9fb759932d14, type: 3}
 --- !u!1 &6829586753221819231
 GameObject:
   m_ObjectHideFlags: 0

@@ -127,15 +127,36 @@ public class AcidShot : AbilityTemplate {
             }
         }
     }
-    public void UpgradeAbility(AcidType newAcidType) {
+    public void UpgradeAcid(AcidType newAcidType) {
         if (newAcidType > acidType) {
             acidType = newAcidType;
         }
+        UpgradeCooldown();
     }
 
+    [SerializeField] GameObject Shot1Drop;
+    [SerializeField] GameObject Shot2Drop;
+    [SerializeField] GameObject Shot3Drop;
+    [SerializeField] GameObject Shot4Drop;
     private void OnDestroy() {
         for (int i = 0; i < maximumShots; i++) {
             Destroy(acidShots[i].gameObject);
+        }
+    }
+    public void DropPickup() {
+        switch (acidType) {
+            case AcidType.Basic:
+                Instantiate(Shot1Drop, transform.position, Quaternion.identity);
+                break;
+            case AcidType.ForwardAndUp:
+                Instantiate(Shot2Drop, transform.position, Quaternion.identity);
+                break;
+            case AcidType.FourWay:
+                Instantiate(Shot3Drop, transform.position, Quaternion.identity);
+                break;
+            case AcidType.OctaShot:
+                Instantiate(Shot4Drop, transform.position, Quaternion.identity);
+                break;
         }
     }
 }

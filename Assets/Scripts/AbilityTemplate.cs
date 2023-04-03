@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AbilityTemplate : MonoBehaviour {
-    [SerializeField] private float cooldown;
-    protected float cooldownTimer;
-    protected bool abilityReady = true;
+    [SerializeField] public float cooldown;
+    public float cooldownTimer;
+    public bool abilityReady = true;
     protected bool isPlayer;
     protected bool isValid;
     [SerializeField] protected float detectionRadius = 1;

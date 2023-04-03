@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,12 +38,19 @@ public class Player : MonoBehaviour {
     [SerializeField] GameObject deathParticles;
     public bool dead = false;
 
-    //Game over screen
+    // Game over screen
     public GameObject GameOverScreen;
-    //To go back to start of level
+    public GameObject PlayerUI;
+
+    // To go back to start of level
     public Button restartLevel;
-    //to go back to start of game
+    // To go back to start of game
     public Button restartGame;
+
+    [SerializeField] Slider powerDashSlider;
+    public PowerDash powerDash;
+    [SerializeField] Slider acidShotSlider;
+    public AcidShot acidShot;
 
     // Start is called before the first frame update
     void Start() {
@@ -53,6 +61,9 @@ public class Player : MonoBehaviour {
 
         restartGame.onClick.AddListener(RestartGame);
         restartLevel.onClick.AddListener(RestartLevel);
+
+        powerDash = GetComponent<PowerDash>();
+        acidShot = GetComponent<AcidShot>();
     }
 
     // Update is called once per frame
@@ -95,6 +106,26 @@ public class Player : MonoBehaviour {
             Destroy(playerSprite);
             rb.simulated = false;
             GameOverScreen.SetActive(true);
+            PlayerUI.SetActive(false);
+        }
+
+        //Display Cooldowns for scripts
+        acidShotSlider.gameObject.SetActive(true);
+        if (!acidShot.abilityReady) {
+            acidShotSlider.value = 1 - (acidShot.cooldownTimer / acidShot.cooldown);
+        } else {
+            acidShotSlider.value = 1;
+        }
+
+        if (powerDash.isActiveAndEnabled) {
+            powerDashSlider.gameObject.SetActive(true);
+            if (!powerDash.abilityReady) {
+                powerDashSlider.value = 1 - (powerDash.cooldownTimer / powerDash.cooldown);
+            } else {
+                powerDashSlider.value = 1;
+            }
+        } else {
+            powerDashSlider.gameObject.SetActive(false);
         }
     }
 

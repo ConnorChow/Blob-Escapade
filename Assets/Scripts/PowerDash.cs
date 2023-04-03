@@ -55,19 +55,27 @@ public class PowerDash : AbilityTemplate {
         }
     }
 
+    public void UpgradeDash() {
+        dashDuration *= 1.1f;
+        UpgradeCooldown();
+    }
+
     public void FixedUpdate() {
         if (inDash) {
-            Debug.Log("In Dash");
             dashBurnout -= Time.fixedDeltaTime;
             rb.velocity = new Vector2(rb.velocity.x, 0);
             rb.AddForce(new Vector2(dashSpeed * Time.fixedDeltaTime * direction, 0));
             if (dashBurnout <= 0) {
-                Debug.Log("Burnout");
                 dashBurnout = dashDuration;
                 inDash = false;
                 SetCooldown();
                 rb.gravityScale = gScale;
             }
         }
+    }
+
+    [SerializeField] GameObject DashDrop;
+    private void OnDestroy() {
+        Instantiate(DashDrop, transform.position, Quaternion.identity);
     }
 }

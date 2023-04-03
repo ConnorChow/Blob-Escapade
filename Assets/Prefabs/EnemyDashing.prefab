@@ -322,11 +322,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 2
+  cooldownTimer: 0
+  abilityReady: 1
   detectionRadius: 1
   dashDuration: 0.2
   dashBurnout: 0.2
   dashSpeed: 25000
   inDash: 0
+  DashDrop: {fileID: 6833844262157690812, guid: 84522965238cd0e4d8ad259cac118b31, type: 3}
 --- !u!1 &6829586753221819231
 GameObject:
   m_ObjectHideFlags: 0
