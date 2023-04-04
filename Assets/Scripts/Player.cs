@@ -47,19 +47,18 @@ public class Player : MonoBehaviour {
     // To go back to start of game
     public Button restartGame;
 
-<<<<<<< Updated upstream
+
     [SerializeField] Slider powerDashSlider;
     public PowerDash powerDash;
     [SerializeField] Slider acidShotSlider;
     public AcidShot acidShot;
-=======
+    
     // Key and door
     public GameObject keyPrefab;
     public GameObject doorPrefab;
     private GameObject keyInstance;
     private GameObject doorInstance;
     private bool hasKey = false;
->>>>>>> Stashed changes
 
     // Start is called before the first frame update
     void Start() {
@@ -71,14 +70,13 @@ public class Player : MonoBehaviour {
         restartGame.onClick.AddListener(RestartGame);
         restartLevel.onClick.AddListener(RestartLevel);
 
-<<<<<<< Updated upstream
         powerDash = GetComponent<PowerDash>();
         acidShot = GetComponent<AcidShot>();
-=======
+
         // Spawn key and door
         keyInstance = Instantiate(keyPrefab, new Vector3(-15, -5, 0), Quaternion.identity);
         doorInstance = Instantiate(doorPrefab, new Vector3(12, -4, 0), Quaternion.identity);
->>>>>>> Stashed changes
+
     }
 
     // Update is called once per frame
