@@ -73,9 +73,4 @@ public class PowerDash : AbilityTemplate {
             }
         }
     }
-
-    [SerializeField] GameObject DashDrop;
-    private void OnDestroy() {
-        Instantiate(DashDrop, transform.position, Quaternion.identity);
-    }
 }

@@ -6,32 +6,32 @@ using UnityEngine.Rendering.Universal;
 public class Enemy : MonoBehaviour {
     public GameObject player;
 
-    //Local component information
+    // Local component information
     [SerializeField] SpriteRenderer playerSprite;
     [SerializeField] Light2D playerLight;
 
-    //Data for displaying and tracking health
+    // Data for displaying and tracking health
     [SerializeField] int maxHealth = 3;
     public int health = 3;
     Color color = new Color(0, 1, 0);
 
-    //Animation controller
+    // Animation controller
     Animator acm;
 
-    //rigidbody from the enemy
+    // Rigidbody from the enemy
     Rigidbody2D rb;
 
-    //move and jumping speed for player
+    // Move and jumping speed for player
     [SerializeField] float moveSpeed = 5;
     [SerializeField] float JumpSpeed = 10;
 
-    //Boolean check for if the player can jump
+    // Boolean check for if the player can jump
     bool canJump = false;
 
-    //track the direction the player is facing
+    // Track the direction the player is facing
     public int trackDirection = 1;
 
-    //Death-related data
+    // Death-related data
     [SerializeField] GameObject deathParticles;
     [SerializeField] bool dead = false;
 
@@ -44,6 +44,14 @@ public class Enemy : MonoBehaviour {
     public float currentTarget;
 
     [SerializeField] float attackSpeedBuffer = 0;
+
+    // Drop type data:
+    [SerializeField] GameObject Shot1Drop;
+    [SerializeField] GameObject Shot2Drop;
+    [SerializeField] GameObject Shot3Drop;
+    [SerializeField] GameObject Shot4Drop;
+
+    [SerializeField] GameObject DashDrop;
 
     // Start is called before the first frame update
     void Start() {
@@ -114,6 +122,26 @@ public class Enemy : MonoBehaviour {
     private void Die() {
         Instantiate(deathParticles, transform.position, Quaternion.identity);
         Destroy(GetComponentInParent<Transform>().gameObject);
+        AcidShot acidShot = GetComponent<AcidShot>();
+        PowerDash powerDash = GetComponent<PowerDash>();
+        if (acidShot != null) {
+            switch (acidShot.acidType) {
+                case AcidType.Basic:
+                    Instantiate(Shot1Drop, transform.position, Quaternion.identity);
+                    break;
+                case AcidType.ForwardAndUp:
+                    Instantiate(Shot2Drop, transform.position, Quaternion.identity);
+                    break;
+                case AcidType.FourWay:
+                    Instantiate(Shot3Drop, transform.position, Quaternion.identity);
+                    break;
+                case AcidType.OctaShot:
+                    Instantiate(Shot4Drop, transform.position, Quaternion.identity);
+                    break;
+            }
+        } else if (powerDash != null) {
+            Instantiate(DashDrop, transform.position, Quaternion.identity);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {

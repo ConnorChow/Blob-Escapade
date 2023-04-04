@@ -20,7 +20,7 @@ public class Player : MonoBehaviour {
 
     //Animation controller
     Animator acm;
-    
+
     //rigidbody from the player
     Rigidbody2D rb;
 
@@ -52,12 +52,11 @@ public class Player : MonoBehaviour {
     public PowerDash powerDash;
     [SerializeField] Slider acidShotSlider;
     public AcidShot acidShot;
-    
+
     // Key and door
-    public GameObject keyPrefab;
-    public GameObject doorPrefab;
-    private GameObject keyInstance;
-    private GameObject doorInstance;
+    public GameObject keyInstance;
+    public GameObject doorInstance;
+    public string nextScene;
     private bool hasKey = false;
 
     // Start is called before the first frame update
@@ -74,8 +73,8 @@ public class Player : MonoBehaviour {
         acidShot = GetComponent<AcidShot>();
 
         // Spawn key and door
-        keyInstance = Instantiate(keyPrefab, new Vector3(-15, -5, 0), Quaternion.identity);
-        doorInstance = Instantiate(doorPrefab, new Vector3(12, -4, 0), Quaternion.identity);
+        //keyInstance = GameObject.Find("key");//Instantiate(keyPrefab, new Vector3(-15, -5, 0), Quaternion.identity);
+        //doorInstance = GameObject.Find("door");//Instantiate(doorPrefab, new Vector3(12, -4, 0), Quaternion.identity);
 
     }
 
@@ -84,7 +83,7 @@ public class Player : MonoBehaviour {
         if (playerLight == null || playerSprite == null) return;
 
         //Color based on health
-        color = new Color(1-((float)health / (float)maxHealth), (float)health / (float)maxHealth, 0);
+        color = new Color(1 - ((float)health / (float)maxHealth), (float)health / (float)maxHealth, 0);
         playerLight.color = color;
         playerSprite.color = color;
 
@@ -142,8 +141,10 @@ public class Player : MonoBehaviour {
         }
 
         // If player picks up key, do something cool
-        if (!hasKey && keyInstance != null && Vector3.Distance(transform.position, keyInstance.transform.position) < 1)
-        {
+        if (keyInstance == null) {
+            Debug.Log("YOU HAVE NOTHING");
+        }
+        if (!hasKey && keyInstance != null && Vector3.Distance(transform.position, keyInstance.transform.position) < 1) {
             Debug.Log("Player picked up the key!");
             // Play a cool particle effect
             //Instantiate(pickupEffect, keyInstance.transform.position, Quaternion.identity);
@@ -159,10 +160,9 @@ public class Player : MonoBehaviour {
         }
 
         // If player reaches the door with the key, load next scene
-        if (hasKey && Vector3.Distance(transform.position, doorInstance.transform.position) < 1)
-        {
-        // Load the next scene
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (hasKey && Vector3.Distance(transform.position, doorInstance.transform.position) < 1) {
+            // Load the next scene
+            SceneManager.LoadScene(nextScene);
         }
 
     }

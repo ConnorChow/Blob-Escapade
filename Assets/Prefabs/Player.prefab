@@ -1777,7 +1777,11 @@ MonoBehaviour:
   restartLevel: {fileID: 8963752932610289151}
   restartGame: {fileID: 1112232942625222539}
   powerDashSlider: {fileID: 3313275051080672789}
+  powerDash: {fileID: 0}
   acidShotSlider: {fileID: 3950102299881949714}
+  acidShot: {fileID: 0}
+  keyPrefab: {fileID: 0}
+  doorPrefab: {fileID: 0}
 --- !u!50 &6829586754284872609
 Rigidbody2D:
   serializedVersion: 4
@@ -1911,7 +1915,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6829586754284872636}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f83db3008872408408a7445c4f40edac, type: 3}
   m_Name: 

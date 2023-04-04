@@ -16,7 +16,7 @@ public class AcidShot : AbilityTemplate {
     private GameObject[] acidShots;             //Recyclable shots
     private Vector2Int[] direction;             //Direction that the acid shot moves in
     
-    [SerializeField] AcidType acidType;         //power of acid that the ability
+    [SerializeField] public AcidType acidType;         //power of acid that the ability
 
     private float speed = 10;
     public override void OnStartEnemy() {
@@ -133,30 +133,9 @@ public class AcidShot : AbilityTemplate {
         }
         UpgradeCooldown();
     }
-
-    [SerializeField] GameObject Shot1Drop;
-    [SerializeField] GameObject Shot2Drop;
-    [SerializeField] GameObject Shot3Drop;
-    [SerializeField] GameObject Shot4Drop;
     private void OnDestroy() {
         for (int i = 0; i < maximumShots; i++) {
             Destroy(acidShots[i].gameObject);
-        }
-    }
-    public void DropPickup() {
-        switch (acidType) {
-            case AcidType.Basic:
-                Instantiate(Shot1Drop, transform.position, Quaternion.identity);
-                break;
-            case AcidType.ForwardAndUp:
-                Instantiate(Shot2Drop, transform.position, Quaternion.identity);
-                break;
-            case AcidType.FourWay:
-                Instantiate(Shot3Drop, transform.position, Quaternion.identity);
-                break;
-            case AcidType.OctaShot:
-                Instantiate(Shot4Drop, transform.position, Quaternion.identity);
-                break;
         }
     }
 }

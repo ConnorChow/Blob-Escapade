@@ -309,6 +309,11 @@ MonoBehaviour:
   d2: 0
   currentTarget: 0
   attackSpeedBuffer: 0
+  Shot1Drop: {fileID: 6833844262157690812, guid: 417d76eea7ea20a4c920a536da1e9a10, type: 3}
+  Shot2Drop: {fileID: 6833844262157690812, guid: f3a34e7086e695b43a3628903dfe15e8, type: 3}
+  Shot3Drop: {fileID: 6833844262157690812, guid: d10162133d9a1004d937bb80f619ba69, type: 3}
+  Shot4Drop: {fileID: 6833844262157690812, guid: 399af9356a7232b46b2a9fb759932d14, type: 3}
+  DashDrop: {fileID: 6833844262157690812, guid: 84522965238cd0e4d8ad259cac118b31, type: 3}
 --- !u!114 &3243968508114867912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,7 +334,6 @@ MonoBehaviour:
   dashBurnout: 0.2
   dashSpeed: 25000
   inDash: 0
-  DashDrop: {fileID: 6833844262157690812, guid: 84522965238cd0e4d8ad259cac118b31, type: 3}
 --- !u!1 &6829586753221819231
 GameObject:
   m_ObjectHideFlags: 0
