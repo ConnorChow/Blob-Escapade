@@ -47,10 +47,19 @@ public class Player : MonoBehaviour {
     // To go back to start of game
     public Button restartGame;
 
+<<<<<<< Updated upstream
     [SerializeField] Slider powerDashSlider;
     public PowerDash powerDash;
     [SerializeField] Slider acidShotSlider;
     public AcidShot acidShot;
+=======
+    // Key and door
+    public GameObject keyPrefab;
+    public GameObject doorPrefab;
+    private GameObject keyInstance;
+    private GameObject doorInstance;
+    private bool hasKey = false;
+>>>>>>> Stashed changes
 
     // Start is called before the first frame update
     void Start() {
@@ -62,8 +71,14 @@ public class Player : MonoBehaviour {
         restartGame.onClick.AddListener(RestartGame);
         restartLevel.onClick.AddListener(RestartLevel);
 
+<<<<<<< Updated upstream
         powerDash = GetComponent<PowerDash>();
         acidShot = GetComponent<AcidShot>();
+=======
+        // Spawn key and door
+        keyInstance = Instantiate(keyPrefab, new Vector3(-15, -5, 0), Quaternion.identity);
+        doorInstance = Instantiate(doorPrefab, new Vector3(12, -4, 0), Quaternion.identity);
+>>>>>>> Stashed changes
     }
 
     // Update is called once per frame
@@ -127,6 +142,31 @@ public class Player : MonoBehaviour {
         } else {
             powerDashSlider.gameObject.SetActive(false);
         }
+
+        // If player picks up key, do something cool
+        if (!hasKey && keyInstance != null && Vector3.Distance(transform.position, keyInstance.transform.position) < 1)
+        {
+            Debug.Log("Player picked up the key!");
+            // Play a cool particle effect
+            //Instantiate(pickupEffect, keyInstance.transform.position, Quaternion.identity);
+
+            // Destroy the key instance
+            Destroy(keyInstance);
+
+            // Set hasKey to true
+            hasKey = true;
+
+            // Play a sound effect
+            //AudioSource.PlayClipAtPoint(pickupSound, transform.position);
+        }
+
+        // If player reaches the door with the key, load next scene
+        if (hasKey && Vector3.Distance(transform.position, doorInstance.transform.position) < 1)
+        {
+        // Load the next scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
     }
 
     private void FixedUpdate() {

@@ -3,7 +3,15 @@ guid: 1622b35bc3f5036448fb1091ac84c6e0
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - playerSprite: {instanceID: 0}
+  - playerLight: {instanceID: 0}
+  - deathParticles: {instanceID: 0}
+  - GameOverScreen: {instanceID: 0}
+  - restartLevel: {instanceID: 0}
+  - restartGame: {instanceID: 0}
+  - keyPrefab: {fileID: 1015836142446464121, guid: 55abc498a94e467439d2e4f1c4f6c5d1, type: 3}
+  - doorPrefab: {fileID: 2780728672091201499, guid: af0b02b7ffbe1de47812bbdef29ff82f, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
