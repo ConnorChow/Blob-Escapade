@@ -44,11 +44,11 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = true;
     }
 
-    public void MainMenu()
+    public void RestartGame()
     {
         GameIsPaused = false;
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene(0);
     }
 
         public void ResolutionChange(int type)
