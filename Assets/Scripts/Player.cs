@@ -62,6 +62,7 @@ public class Player : MonoBehaviour {
         acm = GetComponent<Animator>();
 
         GameOverScreen.SetActive(false);
+        AudioManager.instance.Play("GameMusic");
 
         restartLevel.onClick.AddListener(RestartLevel);
 
