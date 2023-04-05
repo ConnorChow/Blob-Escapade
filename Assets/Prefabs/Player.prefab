@@ -1539,6 +1539,7 @@ Transform:
   - {fileID: 6829586753221819200}
   - {fileID: 6829586753967987344}
   - {fileID: 4578661054504397998}
+  - {fileID: 3289707389966196061}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2719,3 +2720,69 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1001 &3475882187904283268
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6829586754284872639}
+    m_Modifications:
+    - target: {fileID: 2133495790370156505, guid: c2fa6ab5cf3f5324bb91623c8f3c9e74, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2133495790370156505, guid: c2fa6ab5cf3f5324bb91623c8f3c9e74, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2133495790370156505, guid: c2fa6ab5cf3f5324bb91623c8f3c9e74, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2133495790370156505, guid: c2fa6ab5cf3f5324bb91623c8f3c9e74, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2133495790370156505, guid: c2fa6ab5cf3f5324bb91623c8f3c9e74, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2133495790370156505, guid: c2fa6ab5cf3f5324bb91623c8f3c9e74, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2133495790370156505, guid: c2fa6ab5cf3f5324bb91623c8f3c9e74, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2133495790370156505, guid: c2fa6ab5cf3f5324bb91623c8f3c9e74, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2133495790370156505, guid: c2fa6ab5cf3f5324bb91623c8f3c9e74, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2133495790370156505, guid: c2fa6ab5cf3f5324bb91623c8f3c9e74, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2133495790370156505, guid: c2fa6ab5cf3f5324bb91623c8f3c9e74, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2133495790370156508, guid: c2fa6ab5cf3f5324bb91623c8f3c9e74, type: 3}
+      propertyPath: m_Name
+      value: Input Device Detector
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c2fa6ab5cf3f5324bb91623c8f3c9e74, type: 3}
+--- !u!4 &3289707389966196061 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2133495790370156505, guid: c2fa6ab5cf3f5324bb91623c8f3c9e74, type: 3}
+  m_PrefabInstance: {fileID: 3475882187904283268}
+  m_PrefabAsset: {fileID: 0}
