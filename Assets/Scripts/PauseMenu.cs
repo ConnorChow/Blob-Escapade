@@ -51,12 +51,26 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("Menu");
     }
 
-    public void Option()
+        public void ResolutionChange(int type)
     {
-        GameIsPaused = false;
-        Time.timeScale = 1.0f;
-        SceneManager.LoadScene(2);
+        if (type == 1)
+        {
+            Screen.SetResolution (800,600,false);
+        }
+        if (type == 2)
+        {
+            Screen.SetResolution (1024,768,false);
+        }
+        if (type == 3)
+        {
+            Screen.SetResolution (1280,768,false);
+        }
+        if (type == 4)
+        {
+            Screen.SetResolution (1920,1080,false);
+        }
     }
+
 
     public void QuitGame()
     {
