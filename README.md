@@ -24,3 +24,7 @@ The game has some bits of dialogue related to the simple story of the game, expl
 from the blobs trying to kill you and become the ultimate blob by assimilating all the other blobs and their abilities.
 
 We hope you enjoy playing Blob's Revenge!
+
+Unity Editor Version ---> 2022.2.2f1
+
+Github Repository Link ---> https://github.com/ConnorChow/Blob-Escapade
