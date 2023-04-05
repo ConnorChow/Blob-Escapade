@@ -6,25 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-<<<<<<< Updated upstream
-    path: Assets/TestScene.unity
-=======
-    path: Assets/Scenes/TestScene3.unity
-    guid: 19ba876c6cb1ca14cb295aac2fd4b137
+    path: Assets/Scenes/BeginTutorial.unity
+    guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/Scenes/TestScene2.unity
+    path: Assets/Scenes/Level2.unity
     guid: 4430d0185865aad47a2593b7cd94c748
   - enabled: 1
-    path: Assets/Scenes/TestScene4.unity
+    path: Assets/Scenes/Level3.unity
+    guid: 19ba876c6cb1ca14cb295aac2fd4b137
+  - enabled: 1
+    path: Assets/Scenes/Level4.unity
     guid: dfa6c251cd2255141b0f07ea3fcaf44f
   - enabled: 1
-    path: Assets/Scenes/TestScene5.unity
+    path: Assets/Scenes/Level5.unity
     guid: 1a066d1a313ecc04d834478700bac1ea
   - enabled: 1
-    path: Assets/Scenes/TestScene6.unity
+    path: Assets/Scenes/Z-GameComplete.unity
     guid: 59b537a61f44ca74189490f60fbf381e
-  - enabled: 1
-    path: Assets/Scenes/TestScene.unity
->>>>>>> Stashed changes
-    guid: 8c9cfa26abfee488c85f1582747f6a02
   m_configObjects: {}

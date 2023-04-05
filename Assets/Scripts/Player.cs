@@ -14,6 +14,7 @@ public class Player : MonoBehaviour {
     //Data for displaying and tracking health
     [SerializeField] int maxHealth = 100;
     public int health = 100;
+    [SerializeField] bool makeInvincible;
     float healthBuffer = 1;
     public bool isBuffering = false;
     Color color = new Color(0, 1, 0);
@@ -44,13 +45,7 @@ public class Player : MonoBehaviour {
 
     // To go back to start of level
     public Button restartLevel;
-    // To go back to start of game
-    public Button restartGame;
 
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
     [SerializeField] Slider powerDashSlider;
     public PowerDash powerDash;
     [SerializeField] Slider acidShotSlider;
@@ -59,7 +54,6 @@ public class Player : MonoBehaviour {
     // Key and door
     public GameObject keyInstance;
     public GameObject doorInstance;
-    public string nextScene;
     private bool hasKey = false;
 
     // Start is called before the first frame update
@@ -69,51 +63,14 @@ public class Player : MonoBehaviour {
 
         GameOverScreen.SetActive(false);
 
-        restartGame.onClick.AddListener(RestartGame);
         restartLevel.onClick.AddListener(RestartLevel);
 
         powerDash = GetComponent<PowerDash>();
         acidShot = GetComponent<AcidShot>();
 
         // Spawn key and door
-<<<<<<< Updated upstream
-        //keyInstance = GameObject.Find("key");//Instantiate(keyPrefab, new Vector3(-15, -5, 0), Quaternion.identity);
-        //doorInstance = GameObject.Find("door");//Instantiate(doorPrefab, new Vector3(12, -4, 0), Quaternion.identity);
-=======
-        // keyInstance = Instantiate(keyPrefab, new Vector3(-15, -5, 0), Quaternion.identity);
-        // doorInstance = Instantiate(doorPrefab, new Vector3(12, -4, 0), Quaternion.identity);
-        // Array of positions for key and door instances
-        // Get the current scene index
-    // Scene-specific key and door information
-        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
-    switch (sceneIndex) {
-        case 1: // First scene
-            keyInstance = Instantiate(keyPrefab, new Vector3(-15, -5, 0), Quaternion.identity);
-            doorInstance = Instantiate(doorPrefab, new Vector3(12, -4, 0), Quaternion.identity);
-            break;
-        case 2: // Second scene
-            keyInstance = Instantiate(keyPrefab, new Vector3(13, -3, 0), Quaternion.identity);
-            doorInstance = Instantiate(doorPrefab, new Vector3(8, 5, 0), Quaternion.identity);
-            break;
-        case 3: // Third scene
-            keyInstance = Instantiate(keyPrefab, new Vector3(-15, -5, 0), Quaternion.identity);
-            doorInstance = Instantiate(doorPrefab, new Vector3(12, -4, 0), Quaternion.identity);
-            break;
-        case 4: // Fourth scene
-            keyInstance = Instantiate(keyPrefab, new Vector3(-15, -5, 0), Quaternion.identity);
-            doorInstance = Instantiate(doorPrefab, new Vector3(12, -4, 0), Quaternion.identity);
-            break;
-        case 5: // Fifth scene
-            keyInstance = Instantiate(keyPrefab, new Vector3(-15, -5, 0), Quaternion.identity);
-            doorInstance = Instantiate(doorPrefab, new Vector3(12, -4, 0), Quaternion.identity);
-            break;
-        default: // Default scene
-            keyInstance = Instantiate(keyPrefab, new Vector3(-15, -5, 0), Quaternion.identity);
-            doorInstance = Instantiate(doorPrefab, new Vector3(12, -4, 0), Quaternion.identity);
-            break;
-    }
->>>>>>> Stashed changes
-
+        keyInstance = GameObject.Find("key");
+        doorInstance = GameObject.Find("door");
     }
 
     // Update is called once per frame
@@ -149,7 +106,7 @@ public class Player : MonoBehaviour {
         }
 
         //Kill player if dead
-        if (health < 0) {
+        if (health < 0 && !makeInvincible) {
             Instantiate(deathParticles, transform.position, Quaternion.identity);
             dead = true;
             Destroy(playerLight);
@@ -160,11 +117,15 @@ public class Player : MonoBehaviour {
         }
 
         //Display Cooldowns for scripts
-        acidShotSlider.gameObject.SetActive(true);
-        if (!acidShot.abilityReady) {
-            acidShotSlider.value = 1 - (acidShot.cooldownTimer / acidShot.cooldown);
+        if (acidShot.isActiveAndEnabled) {
+            acidShotSlider.gameObject.SetActive(true);
+            if (!acidShot.abilityReady) {
+                acidShotSlider.value = 1 - (acidShot.cooldownTimer / acidShot.cooldown);
+            } else {
+                acidShotSlider.value = 1;
+            }
         } else {
-            acidShotSlider.value = 1;
+            acidShotSlider.gameObject.SetActive(false);
         }
 
         if (powerDash.isActiveAndEnabled) {
@@ -179,11 +140,7 @@ public class Player : MonoBehaviour {
         }
 
         // If player picks up key, do something cool
-        if (keyInstance == null) {
-            Debug.Log("YOU HAVE NOTHING");
-        }
         if (!hasKey && keyInstance != null && Vector3.Distance(transform.position, keyInstance.transform.position) < 1) {
-            Debug.Log("Player picked up the key!");
             // Play a cool particle effect
             //Instantiate(pickupEffect, keyInstance.transform.position, Quaternion.identity);
 
@@ -198,18 +155,10 @@ public class Player : MonoBehaviour {
         }
 
         // If player reaches the door with the key, load next scene
-<<<<<<< Updated upstream
         if (hasKey && Vector3.Distance(transform.position, doorInstance.transform.position) < 1) {
             // Load the next scene
-            SceneManager.LoadScene(nextScene);
-=======
-        if (hasKey && Vector3.Distance(transform.position, doorInstance.transform.position) < 1)
-        {
-            // Load the next scene
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
->>>>>>> Stashed changes
         }
-
     }
 
     private void FixedUpdate() {

@@ -14,12 +14,14 @@ public class AcidPellet : MonoBehaviour {
                 e.InflictDamage();
             } else if (p != null) {
                 gameObject.SetActive(false);
-                p.InflictDamage();
+                if (p.powerDash.isActiveAndEnabled && p.powerDash.inDash) {
+                    //Do nothing
+                } else
+                    p.InflictDamage();
             }
         } else if (collision.tag == "Obstacle") {
             Instantiate(destructionParticles, transform.position, Quaternion.identity);
             gameObject.SetActive(false);
         }
-        //Debug.Log("Overlap");
     }
 }
