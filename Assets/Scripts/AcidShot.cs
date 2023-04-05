@@ -135,7 +135,9 @@ public class AcidShot : AbilityTemplate {
     }
     private void OnDestroy() {
         for (int i = 0; i < maximumShots; i++) {
-            Destroy(acidShots[i].gameObject);
+            if (acidShots[i] != null) {
+                Destroy(acidShots[i].gameObject);
+            }
         }
     }
 }
