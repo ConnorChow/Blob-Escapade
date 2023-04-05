@@ -15,12 +15,14 @@ public class Pickup : MonoBehaviour {
                         playerScript.powerDash.UpgradeDash();
                     } else {
                         playerScript.powerDash.enabled = true;
+                        AudioManager.instance.Play("Pickup");
                     }
                 } else {
                     if (playerScript.acidShot.isActiveAndEnabled) {
                         playerScript.acidShot.UpgradeAcid(acidType);
                     } else {
                         playerScript.acidShot.enabled = true;
+                        AudioManager.instance.Play("Pickup");
                     }
                 }
                 Destroy(gameObject);

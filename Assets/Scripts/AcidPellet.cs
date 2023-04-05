@@ -18,9 +18,11 @@ public class AcidPellet : MonoBehaviour {
                     //Do nothing
                 } else
                     p.InflictDamage();
+                    AudioManager.instance.Play("Damage");
             }
         } else if (collision.tag == "Obstacle") {
             Instantiate(destructionParticles, transform.position, Quaternion.identity);
+            AudioManager.instance.Play("Land");
             gameObject.SetActive(false);
         }
     }

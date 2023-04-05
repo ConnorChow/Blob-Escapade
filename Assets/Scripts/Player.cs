@@ -92,6 +92,7 @@ public class Player : MonoBehaviour {
         //Player jump
         if (Input.GetKeyDown(KeyCode.Space) && canJump) {
             rb.AddForce(new Vector2(0, JumpSpeed));
+            AudioManager.instance.Play("Jump");
         }
 
         //Control animation
@@ -142,6 +143,7 @@ public class Player : MonoBehaviour {
         // If player picks up key, do something cool
         if (!hasKey && keyInstance != null && Vector3.Distance(transform.position, keyInstance.transform.position) < 1) {
             // Play a cool particle effect
+            AudioManager.instance.Play("Pickup");
             //Instantiate(pickupEffect, keyInstance.transform.position, Quaternion.identity);
 
             // Destroy the key instance

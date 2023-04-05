@@ -52,6 +52,7 @@ public class AcidShot : AbilityTemplate {
         //on left button, fire
         if (Input.GetMouseButtonDown(0) && abilityReady) {
             FireType(GetComponent<Player>().trackDirection);
+            AudioManager.instance.Play("Shoot");
         }
         UpdateAcid();
     }
@@ -66,6 +67,7 @@ public class AcidShot : AbilityTemplate {
             int dir = -1;
             if (GetComponent<Enemy>().player.transform.position.x > transform.position.x) dir = 1; else dir = -1;
             FireType(dir);
+            AudioManager.instance.Play("Shoot");
         }
         UpdateAcid();
     }

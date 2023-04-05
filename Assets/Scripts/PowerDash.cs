@@ -27,6 +27,7 @@ public class PowerDash : AbilityTemplate {
         if (Input.GetKeyDown(KeyCode.LeftShift) && abilityReady) {
             Debug.Log("Dash");
             inDash = true;
+            AudioManager.instance.Play("Dash");
             direction = GetComponent<Player>().trackDirection;
             rb.gravityScale = 0;
         }

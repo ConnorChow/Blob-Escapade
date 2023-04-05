@@ -122,6 +122,7 @@ public class Enemy : MonoBehaviour {
     private void Die() {
         Instantiate(deathParticles, transform.position, Quaternion.identity);
         Destroy(GetComponentInParent<Transform>().gameObject);
+        AudioManager.instance.Play("Death");
         AcidShot acidShot = GetComponent<AcidShot>();
         PowerDash powerDash = GetComponent<PowerDash>();
         if (acidShot != null) {
@@ -154,6 +155,7 @@ public class Enemy : MonoBehaviour {
     }
     public void InflictDamage() {
         health -= 1;
+        AudioManager.instance.Play("Damage");
         if (health < 0) dead = true;
     }
 }
