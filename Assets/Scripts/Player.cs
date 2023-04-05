@@ -47,7 +47,10 @@ public class Player : MonoBehaviour {
     // To go back to start of game
     public Button restartGame;
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     [SerializeField] Slider powerDashSlider;
     public PowerDash powerDash;
     [SerializeField] Slider acidShotSlider;
@@ -73,8 +76,43 @@ public class Player : MonoBehaviour {
         acidShot = GetComponent<AcidShot>();
 
         // Spawn key and door
+<<<<<<< Updated upstream
         //keyInstance = GameObject.Find("key");//Instantiate(keyPrefab, new Vector3(-15, -5, 0), Quaternion.identity);
         //doorInstance = GameObject.Find("door");//Instantiate(doorPrefab, new Vector3(12, -4, 0), Quaternion.identity);
+=======
+        // keyInstance = Instantiate(keyPrefab, new Vector3(-15, -5, 0), Quaternion.identity);
+        // doorInstance = Instantiate(doorPrefab, new Vector3(12, -4, 0), Quaternion.identity);
+        // Array of positions for key and door instances
+        // Get the current scene index
+    // Scene-specific key and door information
+        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+    switch (sceneIndex) {
+        case 1: // First scene
+            keyInstance = Instantiate(keyPrefab, new Vector3(-15, -5, 0), Quaternion.identity);
+            doorInstance = Instantiate(doorPrefab, new Vector3(12, -4, 0), Quaternion.identity);
+            break;
+        case 2: // Second scene
+            keyInstance = Instantiate(keyPrefab, new Vector3(13, -3, 0), Quaternion.identity);
+            doorInstance = Instantiate(doorPrefab, new Vector3(8, 5, 0), Quaternion.identity);
+            break;
+        case 3: // Third scene
+            keyInstance = Instantiate(keyPrefab, new Vector3(-15, -5, 0), Quaternion.identity);
+            doorInstance = Instantiate(doorPrefab, new Vector3(12, -4, 0), Quaternion.identity);
+            break;
+        case 4: // Fourth scene
+            keyInstance = Instantiate(keyPrefab, new Vector3(-15, -5, 0), Quaternion.identity);
+            doorInstance = Instantiate(doorPrefab, new Vector3(12, -4, 0), Quaternion.identity);
+            break;
+        case 5: // Fifth scene
+            keyInstance = Instantiate(keyPrefab, new Vector3(-15, -5, 0), Quaternion.identity);
+            doorInstance = Instantiate(doorPrefab, new Vector3(12, -4, 0), Quaternion.identity);
+            break;
+        default: // Default scene
+            keyInstance = Instantiate(keyPrefab, new Vector3(-15, -5, 0), Quaternion.identity);
+            doorInstance = Instantiate(doorPrefab, new Vector3(12, -4, 0), Quaternion.identity);
+            break;
+    }
+>>>>>>> Stashed changes
 
     }
 
@@ -160,9 +198,16 @@ public class Player : MonoBehaviour {
         }
 
         // If player reaches the door with the key, load next scene
+<<<<<<< Updated upstream
         if (hasKey && Vector3.Distance(transform.position, doorInstance.transform.position) < 1) {
             // Load the next scene
             SceneManager.LoadScene(nextScene);
+=======
+        if (hasKey && Vector3.Distance(transform.position, doorInstance.transform.position) < 1)
+        {
+            // Load the next scene
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+>>>>>>> Stashed changes
         }
 
     }
@@ -198,4 +243,5 @@ public class Player : MonoBehaviour {
     public void RestartGame() {
         Debug.Log("Restart Game");
     }
+
 }
