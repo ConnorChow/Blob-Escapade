@@ -1,4 +1,4 @@
-                                                        Blob-Escapade
+                                                         Blob-Escapade
 Welcome to Blob's Revenge, a 2D platformer game where you play as a homicidal blob trying to escape from other blobs trying to kill you.
 
 In this game, you can acquire different abilities by picking up drops from enemies or finding them as pickups in levels.
